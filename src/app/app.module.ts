@@ -8,12 +8,15 @@ import { MaterialModule } from './material.module';
 import { PostCreateComponent } from './components/posts/post-create/post-create.component';
 import { FormsModule } from '@angular/forms';
 import { PostListComponent } from './components/posts/post-list/post-list.component';
+import { PostService } from './services/post.service';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostCreateComponent,
-    PostListComponent
+    PostListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
