@@ -12,11 +12,15 @@ export class PostListComponent implements OnInit {
   constructor(public postService: PostService) { }
 
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts();
     this.postService.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
         this.posts = posts;
       });
   }
 
-}
+  onDelete(postId: string) {
+    this.postService.deletePost(postId);
+  }
+
+}//end class

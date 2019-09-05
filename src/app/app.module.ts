@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PostListComponent } from './components/posts/post-list/post-list.component';
 import { PostService } from './services/post.service';
 import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
