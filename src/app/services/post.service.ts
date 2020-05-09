@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Post } from '../models/post.model';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Post} from '../models/post.model';
+import {Router} from '@angular/router';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class PostService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
@@ -13,7 +13,8 @@ export class PostService {
   constructor(
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) {
+  }
 
   getPosts() {
     this.http
@@ -44,7 +45,7 @@ export class PostService {
   }
 
   addPost(title: string, content: string) {
-    const post: Post = { id: null, title: title, content: content };
+    const post: Post = {id: null, title: title, content: content};
     this.http.post<{ message: string, postId: string }>('http://localhost:3000/api/posts', post)
       .subscribe((responseData) => {
         const id = responseData.postId;
@@ -56,7 +57,7 @@ export class PostService {
   }
 
   updatePost(id: string, title: string, content: string) {
-    const post: Post = { id: id, title: title, content: content };
+    const post: Post = {id: id, title: title, content: content};
     this.http.put('http://localhost:3000/api/posts/' + id, post)
       .subscribe(response => {
         const updatedPosts = [...this.posts];
@@ -77,4 +78,4 @@ export class PostService {
       });
   }
 
-}//end class
+}// end class
